@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>KYC Questionnaire</title>
+</head>
+<body>
+  <table style="font-family:Helvetica, Verdana, Arial, Helvetica, sans-serif" width="100%">
+      <tr>
+          <td style="margin: 0;padding: 0;background-color: #fafafa">
+              <table style="  padding: 15px;background-color: #fff; max-width: 600px;width:100%" align="center">
+
+                  <tr th:replace=~{fragments/header.html} />
+                
+                  <tr>
+                      <td>
+                          <br/>
+                          <h1 style="color: #00cccc;font-size:26px">Thank you for verification!</h1>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <p style="font-size: 14px">Dear user,</p>
+                          <p style="font-size: 14px">You are required to provide information on the source of funds / cryptocurrencies.</p>
+                          <br/>
+                          <p style="font-size: 14px">You've requested this Questionnaire. Please see the attached document.</p>
+                          <p style="font-size: 14px">You'll need to send the scan copy of the filled and duly signed Questionnaire along with the supporting documents to <a href="mailto:verification@exscudo.com">verification@exscudo.com</a>.</p>
+                      </td>
+                  </tr>
+
+                  <tr th:replace=~{fragments/sign.html} />
+
+              </table>
+          </td>
+      </tr>
+  </table>
+
+  <table th:replace=~{fragments/footer.html}/>
+
+</body>
+
+</html>

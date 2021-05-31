@@ -1,0 +1,26 @@
+{{>confirmation/design/header}}
+
+
+<div class="container">
+    <h1 class="h1">{{exscudoName}} <br/>Withdrawal Security</h1>
+    <p class="desc">
+        <b class="desc__medium">
+            You're going to unset a 2-Factor Authorization for withdrawal operations on the {{exscudoName}} exchange.
+        </b>
+    </p>
+    <p class="desc">
+        Note that this action will lower the security of your assets. It's highly recommended that you set 2FA back as soon as possible.
+    </p>
+    <p class="desc">In case of loss of control over the device, used for generating 2FA-codes and unability to confirm an action, please, contact support.</p>
+    <form action="{{URL}}" method="GET">
+        <input type="hidden" name="userId" value="{{userId}}"/>
+        <input type="hidden" name="key" value="{{key}}"/>
+        <div class="label">Two-Factor Authentication code</div>
+        <input autofocus required placeholder="000 000" id="js-code" class="input" type="text" name="code2FA" autocomplete="off"/>
+        <div class="button-spaces">
+            <button class="button">confirm</button>
+        </div>
+    </form>
+</div>
+
+{{>confirmation/design/footer}}

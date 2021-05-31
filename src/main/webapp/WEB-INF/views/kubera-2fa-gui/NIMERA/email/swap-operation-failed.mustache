@@ -1,0 +1,14 @@
+{{>email/design/header}}
+
+<tr>
+    <td>
+        <h2>{{subject}}</h2>
+        <p style="font-size: 14px">
+            Execution of operation '{{operationUuid}}'
+            for Swap Pair '{{projectCurrency}}-{{tradingCurrency}}' has failed.
+            Please, login to Camunda GUI and handle user task for failed payment.
+        </p>
+    </td>
+</tr>
+
+{{>email/design/footer}}

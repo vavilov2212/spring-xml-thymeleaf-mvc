@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>KYC Questionnaire</title>
+    </head>
+    <body>
+        <table style="padding: 0 16px; background-color: #1B1B2D; max-width: 600px; width:100%" align="center">
+
+            <tr th:replace=~{fragments/header.html} />
+
+            <tr class="row">
+                <td cplspan="2" style="display: block">
+                    <br/>
+                    <p
+                        class="text"
+                        style="font-size: 32px; line-height: 51.78px; letter-spacing: 0.15px; text-align: center"
+                    >
+                        THANK YOU FOR VERIFICATION!
+                    </p>
+                </td>
+            </tr>
+            <tr class="row">
+                <td colspan="2">
+                    <p class="text">Dear user,</p>
+                    <p class="text">You are required to provide information on the source of funds / cryptocurrencies.</p>
+                    <br/>
+                    <p class="text">You've requested this Questionnaire. Please see the attached document.</p>
+                    <p class="text">You'll need to send the scan copy of the filled and duly signed Questionnaire along with the supporting documents to <a href="mailto:verification@nimera.io">verification@nimera.io</a>.</p>
+                </td>
+            </tr>
+        </table>
+
+        <div th:replace=~{fragments/footer.html}/>
+    
+    </body>
+</html>

@@ -1,0 +1,50 @@
+{{>email/design/header}}
+
+<tr>
+    <td>
+        <h2>{{subject}}</h2>
+        <p style="font-size: 14px">{{message}}</p>
+        <table style="font-size: 14px;">
+            <tr>
+                <td style="width:200px;">Ravana Server ID</td>
+                <td>{{ravanaServerId}}</td>
+            </tr>
+            <tr>
+                <td>Currency</td>
+                <td>{{currency}}</td>
+            </tr>
+            <tr>
+                <td>Transport ID</td>
+                <td>{{transportId}}</td>
+            </tr>
+            <tr>
+                <td>Wallet Owner</td>
+                <td>{{walletOwner}}</td>
+            </tr>
+            <tr>
+                <td>Wallet Type</td>
+                <td>{{walletType}}</td>
+            </tr>
+            <tr>
+                <td>Wallet ID</td>
+                <td>{{walletId}}</td>
+            </tr>
+            <tr>
+                <td>Wallet Tag</td>
+                <td>{{walletTag}}</td>
+            </tr>
+            <tr>
+                <td>Requested Amount</td>
+                <td>{{amount}}</td>
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td>{{time}}</td>
+            </tr>
+        </table>
+        <p style="font-size: 14px;">Do not copy address of wallet from this letter.
+            Use only information from Security Manager GUI.</p>
+    </td>
+</tr>
+
+{{>email/design/footer}}

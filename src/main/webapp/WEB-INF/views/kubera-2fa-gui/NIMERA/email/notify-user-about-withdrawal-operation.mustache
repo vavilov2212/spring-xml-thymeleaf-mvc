@@ -1,0 +1,17 @@
+{{>email/design/header}}
+
+<tr>
+    <td>
+        <p style="font-size: 14px">Dear user,</p>
+        <p style="font-size: 14px">To approve your withdrawal of {{amount}} {{valueCurrency}} to the external address
+            {{destinationWalletId}} please click the button below and follow instructions.</p>
+        <p style="font-size: 14px">The link below is valid during 1 hour or until the operation is canceled.</p>
+        <p style="font-size: 14px;margin-top:25px;margin-bottom:25px">
+            <a style="font-weight: bold;border-radius: 4px;padding:10px;background-color: {{backgroundColor}};color: #fff;text-decoration:none"
+               href="{{URL}}">Withdraw {{amount}} {{valueCurrency}}</a>
+        </p>
+        <p style="font-size: 14px">If you don't want the operation to be completed, please ignore this letter.</p>
+    </td>
+</tr>
+
+{{>email/design/footer}}

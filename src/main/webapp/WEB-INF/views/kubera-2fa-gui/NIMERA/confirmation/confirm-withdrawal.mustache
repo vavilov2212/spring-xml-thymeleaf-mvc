@@ -1,0 +1,66 @@
+{{>confirmation/design/header}}
+
+{{#outcome}}
+
+<div class="container">
+    <h1 class="h1">{{exscudoName}} <br/>Withdrawal Security</h1>
+    <h2 class="h2">Confirm your withdrawal</h2>
+    <table class="table">
+        <tr>
+            <td class="table__cell">Operation ID</td>
+            <td class="table__cell table__cell--right">{{outcomeUUID}}</td>
+        </tr>
+        <tr>
+            <td class="table__cell">User ID</td>
+            <td class="table__cell table__cell--right">{{userId}}</td>
+        </tr>
+        <tr>
+            <td class="table__cell">Transport</td>
+            <td class="table__cell table__cell--right">{{transportLabel}}</td>
+        </tr>
+        <tr>
+            <td class="table__cell">Currency</td>
+            <td class="table__cell table__cell--right">{{valueCurrency}}</td>
+        </tr>
+        <tr>
+            <td class="table__cell">Amount</td>
+            <td class="table__cell table__cell--right">{{amount}}</td>
+        </tr>
+        <tr>
+            <td class="table__cell">Amount (EURO)</td>
+            <td class="table__cell table__cell--right">{{amountInEuro}}</td>
+        </tr>
+        <tr>
+            <td class="table__cell">Destination Wallet</td>
+            <td class="table__cell table__cell--right">{{destinationWalletId}}</td>
+        </tr>
+    </table>
+    <form action="{{URL}}" method="GET">
+        <input type="hidden" name="uuid" value="{{outcomeUUID}}"/>
+        <input type="hidden" name="key" value="{{key}}"/>
+        {{#enabled2FA}}
+        <div class="input-wrapper">
+            <div class="label">Two-Factor Authentication code</div>
+            <input autofocus required placeholder="000 000" id="js-code" class="input" type="text" name="code2FA" autocomplete="off" />
+            {{#errorMessageFlag}}
+            <p class="error">{{errorMessage}}</p>
+            {{/errorMessageFlag}}
+        </div>
+        {{/enabled2FA}}
+        <div class="buttons-wrapper">
+            <div class="buttons-wrapper__left-btn">
+                <button name="withdraw" value="true" class="button">confirm</button>
+            </div>
+            <button style="width: 103px" name="withdraw" value="false" class="button button--secondary">Reject</button>
+        </div>
+    </form>
+    <p class="desc desc--small">
+        If you didn't initiate this operation and page opened by accident, close it.
+        Link to this page is disposable and will not be accessible again. Confirmation will be expired
+        in 1 hour after which you'll be able to repeat your withdrawal.
+    </p>
+</div>
+
+{{/outcome}}
+
+{{>confirmation/design/footer}}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>User already confirmed</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500&amp;subset=cyrillic&display=swap" media="screen">
+  <style type="text/css">
+    .row {
+      display: block;
+      margin-bottom: 40px;
+    }
+    .text {
+      font-size: 14px;
+      line-height: 24px;
+      font-weight: 500;
+      letter-spacing: 0.75px;
+      margin: 0;
+      color: #FFF;
+      -webkit-text-fill-color: #FFF;
+    }
+    .instructions {
+      font-weight: normal;
+      font-size: 16px;
+      letter-spacing: 0.15px;
+    }
+    .instructions:not(:last-of-type) {
+      margin-bottom: 16px;
+    }
+    .button {
+      box-sizing: border-box;
+      text-decoration: none;
+      transition: .2s;
+      padding: 16px 40px;
+      border-radius: 8px;
+      background-image: linear-gradient(90deg, #FF2E6D -4%, #B51BB3 45%, #6405FF 99%);
+    }
+    .notice {
+      border-collapse: collapse;
+      border-radius: 4px;
+      background-color: #262640;
+      margin: 0 32px;
+    }
+    .comparisonColumn {
+      display: inline-block;
+      margin: 0 auto;
+    }
+    .comparisonList {
+      font-weight: normal;
+      letter-spacing: 0.15px;
+      margin-bottom: 24px;
+    }
+    .comparisonList:first-of-type {
+      margin-top: 47px;
+    }
+    .comparisonList:before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background: #8566FF;
+      display: inline-block;
+      border-radius: 100%;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body style="margin: 0;background-color: #fafafa; font-family: IBM Plex Sans, sans-serif;">
+  <table style="padding: 0 16px;background-color: #1B1B2D; max-width: 600px; width:100%;" align="center">
+    
+    <div th:replace=~{fragments/header.html}/>
+
+    <tr class="row">
+      <td colspan="2" style="display: block">
+        <p
+          class="text"
+          style="font-size: 32px; line-height: 51.78px; letter-spacing: 0.15px; text-align: center"
+        >
+          SUSPICIOUS SING-UP ATTEMPT
+        </p>
+      </td>
+    </tr>
+    <tr class="row">
+      <td colspan="2">
+        <p class="text" style="font-size: 18px; letter-spacing: 0.5px; margin-bottom: 8px;">
+          Someone tried to create a new nimera account using this email— youremail@gmail.com at 16 : 36  UTC, 16/22/2021
+          from near this location— Moscow, Russia
+        </p>
+        <p
+          class="text"
+          style="font-weight: normal; line-height: 28px; color: #7C7CA5; -webkit-text-fill-color: #7C7CA5"
+        >
+          If this wasn’t you, your account may have been compromised. We suggest renewing your email and password.
+        </p>
+      </td>
+    </tr>
+    <tr class="row">
+      <td colspan="2">
+        <p class="text instructions">
+          If this wasn’t you, your account may have been compromised. We suggest renewing your email and password.
+        </p>
+      </td>
+    </tr>
+    <tr class="row" style="margin-bottom: 72px">
+      <td colspan="2" style="display: block; width: 100%; text-align: center; padding: 16px 0">
+        <a class="button text" th:href="@{'https://' + ${hostname} + '/#/product/change/' + ${token} + '/'}">UPDATE LOGIN INFORMATION</a>
+      </td>
+    </tr>
+    <tr class="row">
+      <td colspan="2">
+        <p class="text instructions">
+          If this was you, you can log in into your account using the link below.
+        </p>
+      </td>
+    </tr>
+    <tr class="row" style="margin-bottom: 72px">
+      <td colspan="2" style="display: block; width: 100%; text-align: center; padding: 16px 0">
+        <a class="button text" th:href="@{'https://' + ${hostname}}">LOG INTO MY ACCOUNT</a>
+      </td>
+    </tr>
+    <tr class="row">
+      <td colspan="2" style="display: block; text-align: center;">
+        <p class="text instructions" style="display: inline-block; font-size: 18px; line-height: 28px; letter-spacing:
+        0.5px">
+          Stay secure and happy trading!
+        </p>
+        <img
+          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNSAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMi40OTk5IDEuNDAyMzRDNi42NDc1NiAxLjQwMjM0IDEuOTAzMzIgNi4xNDY1OCAxLjkwMzMyIDExLjk5ODlDMS45MDMzMiAxNy44NTExIDYuNjQ3NTUgMjIuNTk1NCAxMi40OTk5IDIyLjU5NTRDMTguMzUyMSAyMi41OTU0IDIzLjA5NjQgMTcuODUxMSAyMy4wOTY0IDExLjk5ODlDMjMuMDk2NCA2LjE0NjU4IDE4LjM1MjEgMS40MDIzNCAxMi40OTk5IDEuNDAyMzRaTTMuNDIzMzIgMTEuOTk4OUMzLjQyMzMyIDYuOTg2MDUgNy40ODcwMyAyLjkyMjM0IDEyLjQ5OTkgMi45MjIzNEMxNy41MTI2IDIuOTIyMzQgMjEuNTc2NCA2Ljk4NjA1IDIxLjU3NjQgMTEuOTk4OUMyMS41NzY0IDE3LjAxMTcgMTcuNTEyNiAyMS4wNzU0IDEyLjQ5OTkgMjEuMDc1NEM3LjQ4NzAzIDIxLjA3NTQgMy40MjMzMiAxNy4wMTE3IDMuNDIzMzIgMTEuOTk4OVpNOC41NTk5NiAxNC43NDE2QzguMzA3MTkgMTQuMzc5MyA3LjgwODUxIDE0LjI5MDQgNy40NDYxMyAxNC41NDMyQzcuMDgzNzUgMTQuNzk1OSA2Ljk5NDg5IDE1LjI5NDYgNy4yNDc2NiAxNS42NTdDOC40MDI4MiAxNy4zMTMxIDEwLjMyNDUgMTguMzk5MyAxMi41MDAxIDE4LjM5OTNDMTQuNjc1NiAxOC4zOTkzIDE2LjU5NzMgMTcuMzEzMSAxNy43NTI1IDE1LjY1N0MxOC4wMDUyIDE1LjI5NDYgMTcuOTE2NCAxNC43OTU5IDE3LjU1NCAxNC41NDMyQzE3LjE5MTYgMTQuMjkwNCAxNi42OTI5IDE0LjM3OTMgMTYuNDQwMiAxNC43NDE2QzE1LjU3MTQgMTUuOTg3MSAxNC4xMzA1IDE2Ljc5OTMgMTIuNTAwMSAxNi43OTkzQzEwLjg2OTYgMTYuNzk5MyA5LjQyODcxIDE1Ljk4NzEgOC41NTk5NiAxNC43NDE2Wk05LjEwMDA1IDEwLjk1OTNDOS44NzMyNCAxMC45NTkzIDEwLjUgMTAuMzMyNCAxMC41IDkuNTU5MjhDMTAuNSA4Ljc4NjIgOS44NzMyNCA4LjE1OTI4IDkuMTAwMDUgOC4xNTkyOEM4LjMyNjg2IDguMTU5MjggNy43MDAwNSA4Ljc4NjIgNy43MDAwNSA5LjU1OTI4QzcuNzAwMDUgMTAuMzMyNCA4LjMyNjg2IDEwLjk1OTMgOS4xMDAwNSAxMC45NTkzWk0xNy4zIDkuNTU5MjhDMTcuMyAxMC4zMzI0IDE2LjY3MzIgMTAuOTU5MyAxNS45IDEwLjk1OTNDMTUuMTI2OSAxMC45NTkzIDE0LjUgMTAuMzMyNCAxNC41IDkuNTU5MjhDMTQuNSA4Ljc4NjIgMTUuMTI2OSA4LjE1OTI4IDE1LjkgOC4xNTkyOEMxNi42NzMyIDguMTU5MjggMTcuMyA4Ljc4NjIgMTcuMyA5LjU1OTI4WiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyKSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyIiB4MT0iMC44ODk3MzkiIHkxPSIxMS45OTg5IiB4Mj0iMjMuMDkxOSIgeTI9IjEyLjMxNDQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iI0ZGMkU2RCIvPgo8c3RvcCBvZmZzZXQ9IjAuNDc5MTY3IiBzdG9wLWNvbG9yPSIjQjUxQkIzIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzY0MDVGRiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo="
+          alt=""
+          style="display: inline-block; vertical-align: text-bottom"
+        />
+      </td>
+    </tr>
+  </table>
+
+  <div th:replace=~{fragments/footer.html}/>
+  
+</body>
+
+</html>

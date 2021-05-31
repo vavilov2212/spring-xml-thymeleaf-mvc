@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width"/>
+    </head>
+    <body>
+        <table style="font-family:Helvetica, Verdana, Arial, Helvetica, sans-serif" width="100%">
+            <tr>
+                <td style="margin: 0;padding: 0;background-color: #fafafa">
+                    <table style="padding: 15px;background-color: #fff; max-width: 600px;width:100%" align="center">
+
+                        <tr th:replace=~{mid-office/EXSCUDO/fragments/header.html}/>
+
+                        <tr>
+                            <td>
+                                <p style="font-size: 14px">Congrats!</p>
+                                <p style="font-size: 14px">
+                                    You've just voted for [[${coin}]] to be traded on Exsudo and [[${votes}]] Votes will be added for the coin listing.
+                                    You will be notified by email on round results and voting EONs return to your wallet
+                                    (it takes up to 3 days after round end date).
+                                </p>
+
+                                <p style="font-size: 14px;margin-top:25px"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <hr/>
+                                <br/>
+                                <p style="color: #656565;font-size: 14px;line-height: 1.5em;">Best regards, <br/>Exsudo Team.
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table th:replace=~{mid-office/EXSCUDO/fragments/footer.html}/>
+
+    </body>
+</html>

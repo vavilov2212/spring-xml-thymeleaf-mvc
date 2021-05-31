@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Document</title>
+</head>
+<body>
+<table style="padding: 0 16px; background-color: #1B1B2D; max-width: 600px; width:100%" align="center">
+
+    <tr th:replace=~{web-cabinet/NIMERA/fragments/header.html} />
+
+    <tr class="row">
+        <td colspan="2">
+            <p class="text">Dear user,</p>
+            <p class="text">You've requested details for a wire transfer for depositing <span
+                    th:text="${currency}">USD</span> to your Nimera wallet..</p>
+        </td>
+    </tr>
+    <tr class="row">
+        <td colspan="2">
+            <p class="text">Deposit via SEPA transfer:</p>
+        </td>
+    </tr>
+    <tr class="row">
+        <td colspan="2">
+            <table style="padding: 16px;background-color: #1B1B2D; max-width: 600px;width:100%;">
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Owner of account</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${receiverFullNameSepa}">lorem ipsum</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Bank name</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${receiverBankNameSepa}">lorem ipsum</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Bank address</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${receiverBankAddressSepa}">lorem ipsum</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Bank tel/fax</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${receiverBankTelFax}">lorem ipsum</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Bank SWIFT-code</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${receiverBankSwiftSepa}">lorem ipsum</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">IBAN</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${IBAN}">lorem ipsum</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Purpose of payment</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${purposeSepa}">lorem ipsum</span>
+                    </td>
+                </tr>
+            </table>
+            <p class="text some">Deposit via SWIFT transfer:</p>
+            <table style="padding: 15px;background-color: #1B1B2D; max-width: 600px;width:100%; font-size: 14px">
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Correspondent bank</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${correspondentBankName}">lorem ipsum</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Correspondent bank SWIFT-code</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${correspondentBankSwift}">lorem ipsum</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Correspondent bank account</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${correspondentBankAccount}">lorem ipsum</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Receiver bank</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${receiverBankNameSwift}">lorem ipsum</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Receiver bank address</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${receiverBankAddressSwift}">lorem ipsum</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Receiver bank SWIFT-code</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${receiverBankSwiftSwift}">lorem ipsum</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Receiver fullname</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${receiverFullNameSwift}">lorem ipsum</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Receiver bank account</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${receiverBankAccount}">lorem ipsum</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Purpose of payment</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${purposeSwift}">lorem ipsum</span>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <p class="text" style="margin-bottom: 40px">
+                If this activity is not your own operation, please ignore the letter.
+            </p>
+        </td>
+    </tr>
+</table>
+
+<div th:replace=~{web-cabinet/NIMERA/fragments/footer.html}/>
+
+</body>
+</html>

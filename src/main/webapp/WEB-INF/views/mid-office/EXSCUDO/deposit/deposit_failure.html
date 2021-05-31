@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width"/>
+    </head>
+    <body>
+        <table style="font-family:Helvetica, Verdana, Arial, Helvetica, sans-serif" width="100%">
+            <tr>
+                <td style="margin: 0;padding: 0;background-color: #fafafa">
+                    <table style="padding: 15px;background-color: #fff; max-width: 600px;width:100%" align="center">
+
+                        <tr th:replace=~{mid-office/EXSCUDO/fragments/header.html}/>
+
+                        <tr>
+                            <td>
+                                <p style="font-size: 14px">Hello!</p>
+                                <p style="font-size: 14px">There was an error processing your transaction of [[${amount}]] [[${currency}]] total.
+                                    Please check the data you have entered, check the balance of the account and repeat the payment.
+                                    In case the money was transferred but never received&nbsp;-&nbsp;<a href="https://exscudo.atlassian.net/servicedesk/customer/portal/1">Please contact Support Team</a></p>
+                                <p style="font-size: 14px;margin-top:25px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <hr/>
+                                <br/>
+                                <p style="color: #656565;font-size: 14px;line-height: 1.5em;">Best regards, <br/>Exscudo Team.
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table th:replace=~{mid-office/EXSCUDO/fragments/footer.html}/>
+
+    </body>
+
+</html>

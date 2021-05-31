@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width"/>
+    </head>
+    <body>
+        <table style="padding: 0 16px; background-color: #1B1B2D; max-width: 600px; width:100%" align="center">
+
+            <tr th:replace=~{mid-office/NIMERA/fragments/header.html} />
+
+            <tr class="row">
+                <td colspan="2">
+                    <p class="text">Hello!</p>
+                    <p class="text">Your report "<th:block th:text="${reportType}"/>" from <th:block th:text="${#dates.format(dateFrom, 'MM/dd/yyyy')}"/>
+                        till <th:block th:text="${#dates.format(dateTo, 'MM/dd/yyyy')}"/> is ready.</p>
+                    <p class="text" style="margin-bottom: 40px">
+                        You can download it on <a th:href="@{${reportsUrl}}">your account settings page</a>.
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <div th:replace=~{mid-office/NIMERA/fragments/footer.html}/>
+
+    </body>
+</html>

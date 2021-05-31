@@ -1,0 +1,27 @@
+<script>
+    <!-- Normalize code -->
+    (function () {
+        function savePrevValue() {
+            var prevValue = '';
+
+            return function (evt) {
+                var nextValue = evt.target.value;
+                var value = normalizeValue(prevValue, nextValue);
+
+                evt.target.value = prevValue = value;
+            }
+        }
+
+        function normalizeValue(prevValue, nextValue) {
+            if (/^\d+$/.test(nextValue) && nextValue.length <= 6 || nextValue === '') {
+                return nextValue;
+            }
+
+            return prevValue;
+        }
+
+        document.getElementById('js-code').addEventListener('input', savePrevValue());
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Sign Up Confirmation</title>
+    </head>
+    <body>
+        <table style="padding: 0 16px; background-color: #1B1B2D; max-width: 600px; width:100%" align="center">
+
+            <tr th:replace=~{fragments/header.html} />
+
+            <tr class="row">
+                <td colspan="2" style="display: block">
+                    <p
+                        class="text"
+                        style="font-size: 32px; line-height: 51.78px; letter-spacing: 0.15px; text-align: center"
+                    >
+                        WELCOME TO NIMERA!
+                    </p>
+                </td>
+            </tr>
+            <tr class="row">
+                <td colspan="2">
+                    <p class="text">
+                        Thank you for creating the Nimera account. Please verify your email and set up password to complete the registration process
+                    </p>
+                </td>
+            </tr>
+            <tr class="row" style="margin-bottom: 72px">
+                <td colspan="2" style="display: block; width: 100%; text-align: center; padding: 16px 0">
+                        <a class="button text" th:href="@{'https://' + ${hostname} + '/#/signup/confirm/' + ${token} + '/?utm_nooverride=1&amp;utm_campaign=reg_activation&amp;utm_source=notification&amp;utm_medium=email'}">
+                            Activate
+                        </a>
+                </td>
+            </tr>
+            <tr class="row">
+                <td colspan="2">
+                    <p class="text">For security reasons this link will expire in 24 hours.</p>
+                    <p class="text">If you are not the one who has made it, please ignore the letter.</p>
+                </td>
+            </tr>
+        </table>
+
+        <div th:replace=~{fragments/footer.html}/>
+    
+    </body>
+</html>

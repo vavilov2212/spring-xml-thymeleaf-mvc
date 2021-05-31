@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Document</title>
+</head>
+<body>
+  <table style="font-family:Helvetica, Verdana, Arial, Helvetica, sans-serif" width="100%">
+      <tr>
+          <td style="margin: 0;padding: 0;background-color: #fafafa">
+              <table style="padding: 15px;background-color: #fff; max-width: 600px;width:100%" align="center">
+
+                  <tr th:replace=~{fragments/header.html} />
+                      
+                  <tr>
+                      <td>
+                          <p style="font-size: 14px">Hello!</p>
+                          <p style="font-size: 14px">To approve your withdrawal of <span th:text="${sum}">0.0</span> <span>EON</span> to the external address
+                              <span th:text="${address}">ADDR</span> please click the button below.</p>
+                          <p style="font-size: 14px;margin-top:25px">
+                              <a style="font-weight: bold;border-radius: 4px;padding:10px;background-color: #00cccc;color: #fff;text-decoration:none"
+                                 th:href="@{'https://' + ${hostname} + '/ico/tokens/withdraw/' + ${what} + '/confirm/' + ${token} + '/'}">Withdraw</a>
+
+                          </p>
+                          <br />
+                          <p style="font-size: 14px">For security reasons this link will expire in 24 hours.<br/>
+                              If this activity is not your own operation, you can cancel the transaction.</p>
+
+                          <p style="font-size: 14px;margin-top:25px">
+                              <a style="font-weight: bold;border-radius: 4px;padding:10px;background-color: #00cccc;color: #fff;text-decoration:none"
+                                 th:href="@{'https://' + ${hostname} + '/ico/tokens/withdraw/' + ${what} + '/cancel/' + ${token} + '/'}">Cancel</a>
+
+                          </p>
+                      </td>
+                  </tr>
+
+                  <tr th:replace=~{fragments/sign.html} />
+
+              </table>
+          </td>
+      </tr>
+  </table>
+
+  <table th:replace=~{fragments/footer.html}/>
+
+</body>
+
+</html>

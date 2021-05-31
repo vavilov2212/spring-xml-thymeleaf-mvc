@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <table style="font-family:Helvetica, Verdana, Arial, Helvetica, sans-serif" width="100%">
+        <tr>
+            <td style="margin: 0;padding: 0;background-color: #fafafa">
+                <table style="padding: 15px;background-color: #fff; max-width: 600px;width:100%" align="center">
+
+                    <tr th:replace=~{mid-office/EXSCUDO/fragments/header.html}/>
+
+                    <tr>
+                        <td>
+                            <p style="font-size: 14px">Dear [[${fullname}]],</p>
+                            <p style="font-size: 14px">We are happy to inform you that the long requested merge of
+                                Channels app and Exscudo Exchange KYC databases is on its final stage of implementation.</p>
+
+                            <p style="font-size: 14px">However, when merging the above two databases we found that
+                                your account data lacks essential information.</p>
+
+                            <p style="font-size: 14px">In this regard we would ask you to make sure your personal
+                                information in the corresponding KYC section contains your country of residence and
+                                phone number.</p>
+
+                            <p style="font-size: 14px">For more information, please refer to the dedicated section of
+                                <a href="https://exscudo.atlassian.net/servicedesk/customer/portal/1/topic/b585bf36-a1d8-4fc1-b4b9-2fb7b6d81cb5">
+                                    Exscudo Help Center Knowledge Base
+                                </a>
+                            </p>
+                            <p style="font-size: 14px">Should there be a need in assistance, do not hesitate to contact Exscudo support team at:
+                            <p>-	<a href="https://help.exscudo.com">https://help.exscudo.com</a>;</p>
+                            <p>-	<a href="mailto:help@exscudo.com">help@exscudo.com</a>;</p>
+                            </p>
+                            <p style="font-size: 14px;margin-top:25px"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <hr/>
+                            <br/>
+                            <p style="color: #656565;font-size: 14px;line-height: 1.5em;">Best regards, <br/>Exscudo Team.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table th:replace=~{mid-office/EXSCUDO/fragments/footer.html}/>
+
+  </body>
+</html>

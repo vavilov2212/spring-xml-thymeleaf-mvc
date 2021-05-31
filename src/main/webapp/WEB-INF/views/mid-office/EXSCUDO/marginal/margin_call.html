@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width"/>
+    </head>
+    <body>
+        <table style="font-family:Helvetica, Verdana, Arial, Helvetica, sans-serif" width="100%">
+            <tr>
+                <td style="margin: 0;padding: 0;background-color: #fafafa">
+                    <table style="padding: 15px;background-color: #fff; max-width: 600px;width:100%" align="center">
+
+                        <tr th:replace=~{mid-office/EXSCUDO/fragments/header.html}/>
+
+                        <tr>
+                            <td>
+                                <p style="font-size: 14px">Dear Customer!</p>
+                                <p style="font-size: 14px">Margin trading on an exchange is a risky activity and can lead to financial losses.</p>
+                                <p style="font-size: 14px">Exscudo Team always cares about the status of your trading account on our exchange.
+                                    The equity amount in your portfolio is below the maintenance requirement of
+                                    <th:block th:text="${marginCallPercent ?: 66}"></th:block>%.
+                                    To continue trading you need to deposit funds or close some positions.
+                                    Otherwise, if you are unable to do that now, our specialist will close some of your most risky
+                                    positions for you to bring the risk level of your portfolio within acceptable limits.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <hr/>
+                                <br/>
+                                <p style="color: #656565;font-size: 14px;line-height: 1.5em;">Best regards, <br/>Exscudo Team.
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table th:replace=~{mid-office/EXSCUDO/fragments/footer.html}/>
+
+    </body>
+</html>

@@ -1,0 +1,26 @@
+{{>confirmation/design/header}}
+
+<div class="container">
+    <h1 class="h1">{{exscudoName}} <br/>Withdrawal Security</h1>
+    <p class="desc desc--margin-large">
+        <b class="desc__medium desc__medium--green">
+            2-Factor Authorization is successfully set.
+        </b>
+    </p>
+    <p class="desc desc--margin-large">
+        Make sure that you keep the device used for code generation in safety.
+    </p>
+    <p class="desc desc--margin-large">
+        <b class="desc__medium">
+            You'll be redirected back to the {{exscudoName}} exchange in a few seconds
+        </b>
+    </p>
+</div>
+
+<script>
+    // Redirect
+    window.setTimeout(function() {
+        window.location.assign("{{redirectUrl}}");
+    }, 10000);
+</script>
+{{>confirmation/design/footer}}

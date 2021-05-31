@@ -1,0 +1,25 @@
+{{>confirmation/design/header}}
+
+<div class="container">
+    <h1 class="h1">{{exscudoName}} <br/>Withdrawal Security</h1>
+    <h2 class="h2 h2--red">Link to this page was expired</h2>
+    <p class="desc desc--margin-large">
+        You need to initiate the original operation again.
+    </p>
+    <p class="desc desc--margin-large">
+        <b class="desc__medium">
+            You'll be redirected back to the {{exscudoName}} exchange in a few seconds
+        </b>
+    </p>
+    <p class="desc desc--margin-large">
+        if you are not redirected automatically <a href="{{redirectUrl}}">click here</a>
+    </p>
+</div>
+
+<script>
+    // Redirect
+    window.setTimeout(function() {
+        window.location.assign("{{redirectUrl}}");
+    }, 10000);
+</script>
+{{>confirmation/design/footer}}

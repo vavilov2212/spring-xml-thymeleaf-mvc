@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <table style="font-family:Helvetica, Verdana, Arial, Helvetica, sans-serif" width="100%">
+        <tr>
+            <td style="margin: 0;padding: 0;background-color: #fafafa">
+                <table style="padding: 15px;background-color: #fff; max-width: 600px;width:100%" align="center">
+
+                    <tr th:replace=~{fragments/header.html} />
+
+                    <tr>
+                        <td>
+                            <p style="font-size: 14px">Dear user,</p>
+                            <p style="font-size: 14px">You've requested details for a wire transfer for depositing <span
+                                    th:text="${currency}">RUB</span> to your Exscudo wallet..</p>
+                            <p style="font-size: 14px">Deposit via Russian bank transfer:</p>
+                            <table style="padding: 15px;background-color: #fff; max-width: 600px;width:100%; font-size: 14px">
+                                <tr>
+                                    <td style="width: 50%; vertical-align: top">
+                                        Receiver bank account
+                                    </td>
+                                    <td>
+                                        <span th:text="${receiverAccount}">lorem ipsum</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%; vertical-align: top">
+                                        Receiver bank city
+                                    </td>
+                                    <td>
+                                        <span th:text="${receiverBankCity}">lorem ipsum</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%; vertical-align: top">
+                                        Receiver bank name
+                                    </td>
+                                    <td>
+                                        <span th:text="${receiverBankName}">lorem ipsum</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%; vertical-align: top">
+                                        Receiver bank BIC
+                                    </td>
+                                    <td>
+                                        <span th:text="${receiverBankBic}">lorem ipsum</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%; vertical-align: top">
+                                        Receiver bank correspondent account
+                                    </td>
+                                    <td>
+                                        <span th:text="${receiverBankCorrespondentAccount}">lorem ipsum</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%; vertical-align: top">
+                                        Receiver full name
+                                    </td>
+                                    <td>
+                                        <span th:text="${receiverFullname}">lorem ipsum</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%; vertical-align: top">
+                                        Receiver INN
+                                    </td>
+                                    <td>
+                                        <span th:text="${receiverInn}">lorem ipsum</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%; vertical-align: top">
+                                        Purpose of payment
+                                    </td>
+                                    <td>
+                                        <span th:text="${purposeRussia}">lorem ipsum</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br/>
+                            <p style="font-size: 14px">If this activity is not your own operation, please ignore the
+                                letter.</p>
+                            <p style="font-size: 14px;margin-top:25px"/>
+                        </td>
+                    </tr>
+
+                    <tr th:replace=~{fragments/sign.html} />
+                    
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table th:replace=~{fragments/footer.html}/>
+</body>
+
+</html>

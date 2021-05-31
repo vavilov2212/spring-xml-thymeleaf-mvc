@@ -1,0 +1,66 @@
+{{>confirmation/design/header}}
+<div class="container">
+    <h1 class="h1">{{exscudoName}} <br/>Withdrawal Security</h1>
+    <p class="desc">
+        <b class="desc__medium">
+            You're going to set a 2-Factor Authorization for withdrawal operations on the {{exscudoName}} exchange.
+            Please, follow the steps below.
+        </b>
+    </p>
+    <p class="desc">
+        If you didn't initiate setting 2FA and page opened by accident, close the page. Link to this page
+        is disposable and will not be accessible again. To initiate setting 2FA later you should visit
+        {{exscudoName}} exchange and start the process again.
+    </p>
+    <div class="stager">
+        <div class="stager__item">
+            <div class="stager__item-value">1</div>
+            <div class="stager__item-text">Step 1. Download and Install Google Authenticator application</div>
+            <div class="stager__itmem-content">
+                <a target="_blank" class="link-google-play" href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2">
+                    <img
+                        src="data:image/png;base64,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"
+                        alt=""
+                    />
+                </a>
+                <a target="_blank" class="link-app-store" href="https://itunes.apple.com/ru/app/google-authenticator/id388497605?mt=8">
+                    <img
+                        src="data:image/png;base64,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"
+                        alt=""
+                    />
+                </a>
+            </div>
+        </div>
+        <div class="stager__item">
+            <div class="stager__item-value">2</div>
+            <div class="stager__item-text">Step 2. Scan QR Code</div>
+            <img src="{{enableQRCodeUrl}}" width="250" height="250"/>
+        </div>
+        <div class="stager__item">
+            <div class="stager__item-value">3</div>
+            <div class="stager__item-text">Step 3. Save this code</div>
+            <div class="stager__item-small-text">It will restore the Google Authenticator in case you lose your phone.</div>
+            <div class="notification-space">
+                <div class="notification">{{secretCode}}</div>
+            </div>
+            <div class="warning-text">Please save this Key on paper.</div>
+        </div>
+        <div class="stager__item">
+            <div class="stager__item-value">4</div>
+            <div class="stager__item-text">Step 4. Enter details to confirm the operation</div>
+            <form action="{{URL}}" method="GET">
+                <input type="hidden" name="userId" value="{{userId}}"/>
+                <input type="hidden" name="key" value="{{key}}"/>
+                <div class="label">Two-Factor Authentication code</div>
+                <input placeholder="000 000" required autofocus id="js-code" class="input" type="text" name="code2FA" value="" autocomplete="off" />
+                {{#errorMessageFlag}}
+                <p class="error">{{errorMessage}}</p>
+                {{/errorMessageFlag}}
+                <div class="button-spaces">
+                    <button class="button">Enable Google Authentication </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{>confirmation/design/footer}}

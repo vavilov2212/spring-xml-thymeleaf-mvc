@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width"/>
+    </head>
+    <body>
+        <table style="padding: 0 16px; background-color: #1B1B2D; max-width: 600px; width:100%"  align="center">
+
+            <tr th:replace=~{mid-office/NIMERA/fragments/header.html} />
+
+            <tr class="row">
+                <td colspan="2">
+                    <p class="text">Deposit Wallet Report.</p>
+                    <table border="1">
+                        <tr>
+                            <th class="text some">Wallet EON-ID</th>
+                            <th class="text some">Currency</th>
+                            <th class="text some">Amount Due (Currency)</th>
+                            <th class="text some">Available Amount (Currency)</th>
+                            <th class="text some">Due Date</th>
+                            <th class="text some">Diff</th>
+                        </tr>
+                        <tr th:each="payment : ${payments}">
+                            <th:block th:if="${payment.get('warning')}">
+                                <td class="text some" style="color: red;" th:text="${payment.get('wallet_eon_id')}">
+                                    wallet_eon_id
+                                </td>
+                                <td class="text some" style="color: red;" th:text="${payment.get('currency')}">
+                                    currency
+                                </td>
+                                <td class="text some" style="color: red;" th:text="${payment.get('amount_due')}">
+                                    amount due
+                                </td>
+                                <td class="text some" style="color: red;" th:text="${payment.get('available_amount')}">
+                                    available amount
+                                </td>
+                                <td class="text some" style="color: red;" th:text="${#dates.format(payment.get('due_date'), 'yyyy-MM-dd')}">
+                                    due date
+                                </td>
+                                <td class="text some" style="color: red;" th:text="${payment.get('diff')}">
+                                    diff
+                                </td>
+                            </th:block>
+                            <th:block th:unless="${payment.get('warning')}">
+                                <td class="text some" th:text="${payment.get('wallet_eon_id')}">wallet_eon_id</td>
+                                <td class="text some" th:text="${payment.get('currency')}">currency</td>
+                                <td class="text some" th:text="${payment.get('amount_due')}">amount due</td>
+                                <td class="text some" th:text="${payment.get('available_amount')}">available amount</td>
+                                <td class="text some" th:text="${#dates.format(payment.get('due_date'), 'yyyy-MM-dd')}">due date</td>
+                                <td class="text some" th:text="${payment.get('diff')}">diff</td>
+                            </th:block>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <div th:replace=~{mid-office/NIMERA/fragments/footer.html}/>
+
+    </body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title th:text="'Hello ' + ${name} + '!'"></title>
+</head>
+<body>
+    <div th:replace="~{fragments/header.html}"/>
+    <h2 class="hello-title" th:text="'Hello ' + ${name} + '!'"></h2>
+    <script th:src="@{/resources/js/main.js}"></script>
+</body>
+</html>

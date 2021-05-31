@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width"/>
+    </head>
+    <body>
+        <table style="padding: 0 16px; background-color: #1B1B2D; max-width: 600px; width:100%" align="center">
+
+            <tr th:replace=~{mid-office/NIMERA/fragments/header.html} />
+
+            <tr class="row">
+                <td colspan="2">
+                    <p class="text">Congrats!</p>
+                    <p class="text" style="margin-bottom: 40px">
+                        You've just voted for [[${coin}]] to be traded on Nimera and [[${votes}]] Votes will be added for the coin listing.
+                        You will be notified by email on round results and voting EONs return to your wallet
+                        (it takes up to 3 days after round end date).
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <div th:replace=~{mid-office/NIMERA/fragments/footer.html}/>
+
+    </body>
+</html>

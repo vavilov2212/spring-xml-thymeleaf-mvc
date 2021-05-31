@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width"/>
+    </head>
+    <body>
+        <table style="padding: 0 16px; background-color: #1B1B2D; max-width: 600px; width:100%" align="center">
+
+            <tr th:replace=~{mid-office/NIMERA/fragments/header.html} />
+
+            <tr class="row">
+                <td colspan="2">
+                    <p class="text">Добрый день!</p>
+                    <p class="text">Ваш отчет "<th:block th:text="${reportType}"/>" с <th:block th:text="${#dates.format(dateFrom, 'dd.MM.yyyy')}"/>
+                    по <th:block th:text="${#dates.format(dateTo, 'dd.MM.yyyy')}"/> готов.</p>
+                    <p class="text" style="margin-bottom: 40px">
+                        Вы можете скачать его <a th:href="@{${reportsUrl}}">на странице отчетов в личном кабинете</a>.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr/>
+                    <br/>
+                    <p class="text">С наилучшими пожеланиями, <br/>Команда Nimera.
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <div th:replace=~{mid-office/NIMERA/fragments/footer.html}/>
+
+    </body>
+</html>

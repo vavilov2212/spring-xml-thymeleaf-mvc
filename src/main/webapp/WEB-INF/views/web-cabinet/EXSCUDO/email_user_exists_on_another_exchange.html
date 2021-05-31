@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>User already confirmed</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+
+    <body>
+
+
+    <table style="font-family:Helvetica, Verdana, Arial, Helvetica, sans-serif" width="100%">
+        <tr>
+            <td style="margin: 0;padding: 0;background-color: #fafafa">
+                <table style="padding: 15px;background-color: #fff; max-width: 600px;width:100%" align="center">
+
+                    <tr th:replace=~{fragments/header.html} />
+
+                    <tr>
+                        <td>
+                            <br/>
+                            <h1 style="color: #00cccc;font-size:26px">Welcome to Exscudo!</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="font-size: 14px">Someone, probably you, tried to register already existing Nimera account again on Exscudo.</p>
+                            <p style="font-size: 14px">You can use your account on nimera.exchange only.</p>
+                            <br/>
+                            <br/>
+                        </td>
+                    </tr>
+                        
+                    <tr th:replace=~{fragments/sign.html} />
+
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table th:replace=~{fragments/footer.html}/>
+
+</body>
+
+</html>

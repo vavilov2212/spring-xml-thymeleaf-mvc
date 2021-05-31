@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <table style="padding: 0 16px; background-color: #1B1B2D; max-width: 600px; width:100%" align="center">
+
+            <tr th:replace=~{mid-office/NIMERA/fragments/header.html} />
+
+            <tr class="row">
+                <td colspan="2">
+                    <p class="text">Dear [[${fullname}]],</p>
+                    <p class="text">We are happy to inform you that the long requested merge of
+                        Channels app and Nimera Exchange KYC databases is on its final stage of implementation.</p>
+
+                    <p class="text">However, when merging the above two databases we found that
+                        your account data lacks essential information.</p>
+
+                    <p class="text">In this regard we would ask you to make sure your personal
+                        information in the corresponding KYC section contains your country of residence and
+                        phone number.</p>
+
+                    <p class="text">For more information, please refer to the dedicated section of
+                        <a href="https://exscudo.atlassian.net/servicedesk/customer/portal/1/topic/b585bf36-a1d8-4fc1-b4b9-2fb7b6d81cb5">
+                            Nimera Help Center Knowledge Base
+                        </a>
+                    </p>
+                    <p class="text" style="margin-bottom: 40px">
+                        Should there be a need in assistance, do not hesitate to contact Nimera support team at:
+                        <p class="text">-	<a href="https://help.nimera.io">https://help.nimera.io</a>;</p>
+                        <p class="text">-	<a href="mailto:help@nimera.io">help@nimera.io</a>;</p>
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <div th:replace=~{mid-office/NIMERA/fragments/footer.html}/>
+
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width"/>
+    </head>
+    <body>
+        <table style="padding: 0 16px; background-color: #1B1B2D; max-width: 600px; width:100%" align="center">
+
+            <tr th:replace=~{mid-office/NIMERA/fragments/header.html} />
+
+            <tr class="row">
+                <td colspan="2">
+                    <p class="text">Dear Risk Manager!</p>
+                    <p class="text">Margin trading on an exchange is a risky activity and YOU ARE THE CHOSEN ONE TO CLEAN UP EVERYTHING.</p>
+                    <p class="text" style="margin-bottom: 40px">
+                        Currently there are <th:block th:text="${totalNotificationsCount ?: 66}">XX</th:block> portfolios that require you attention
+                    </p>
+
+                    <table border="1">
+                        <tr>
+                            <th class="text some">Root Login</th>
+                            <th class="text some">Portfolio Code</th>
+                            <th class="text some">Value</th>
+                            <th class="text some">Risk</th>
+                            <th class="text some">Liquidation Value</th>
+                            <th class="text some">Margin Level</th>
+                        </tr>
+                        <tr th:each="notification : ${notifications}">
+                            <td class="text some" th:text="${notification.rootLogin}">login</td>
+                            <td class="text some" th:text="${notification.portfolioCode}">login</td>
+                            <td class="text some" th:text="${notification.value}">login</td>
+                            <td class="text some" th:text="${notification.risk}">login</td>
+                            <td class="text some" th:text="${notification.liquidationValue}">login</td>
+                            <td class="text some" th:text="${notification.marginLevel}">login</td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+        </table>
+
+        <div th:replace=~{mid-office/NIMERA/fragments/footer.html}/>
+
+    </body>
+</html>

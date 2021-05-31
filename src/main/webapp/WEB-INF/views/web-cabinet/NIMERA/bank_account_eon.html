@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Document</title>
+</head>
+<body>
+<table style="padding: 0 16px;background-color: #1B1B2D; max-width: 600px;width:100%" align="center">
+
+    <tr th:replace=~{fragments/header.html} />
+
+    <tr class="row">
+        <td colspan="2">
+            <p class="text">Dear user,</p>
+            <p class="text">You've requested details for a wire transfer for depositing <span
+                    th:text="${currency}">EON</span> to your Nimera wallet..</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <p class="text">Deposit via EON transfer:</p>
+        </td>
+    </tr>
+    <tr class="row">
+        <td colspan="2">
+            <table style="padding: 16px;background-color: #1B1B2D; max-width: 600px;width:100%">
+                <tr>
+                    <td style="width: 50%; vertical-align: top">
+                        <p class="text some">Receiver address</p>
+                    </td>
+                    <td>
+                        <span class="text some" th:text="${address}">lorem ipsum</span>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <p class="text" style="margin-bottom: 40px">
+                If this activity is not your own operation, please ignore the letter.
+            </p>
+        </td>
+    </tr>
+</table>
+
+<div th:replace=~{fragments/footer.html}/>
+
+</body>
+
+</html>

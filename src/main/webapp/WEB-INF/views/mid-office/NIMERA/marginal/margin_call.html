@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width"/>
+    </head>
+    <body>
+        <table style="padding: 0 16px; background-color: #1B1B2D; max-width: 600px; width:100%" align="center">
+
+            <tr th:replace=~{mid-office/NIMERA/fragments/header.html} />
+
+            <tr class="row">
+                <td colspan="2">
+                    <p class="text">Dear Customer!</p>
+                    <p class="text">Margin trading on an exchange is a risky activity and can lead to financial losses.</p>
+                    <p class="text" style="margin-bottom: 40px">
+                        Nimera Team always cares about the status of your trading account on our exchange.
+                        The equity amount in your portfolio is below the maintenance requirement of
+                        <th:block th:text="${marginCallPercent ?: 66}"></th:block>%.
+                        To continue trading you need to deposit funds or close some positions.
+                        Otherwise, if you are unable to do that now, our specialist will close some of your most risky
+                        positions for you to bring the risk level of your portfolio within acceptable limits.
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <div th:replace=~{mid-office/NIMERA/fragments/footer.html}/>
+
+    </body>
+</html>

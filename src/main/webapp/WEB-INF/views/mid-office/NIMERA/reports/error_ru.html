@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500&amp;subset=cyrillic&display=swap" media="screen">
+    </head>
+    <body>
+        <table style="padding: 0 16px; background-color: #1B1B2D; max-width: 600px; width:100%" align="center">
+
+            <tr th:replace=~{mid-office/NIMERA/fragments/header.html} />
+
+            <tr class="row">
+                <td colspan="2">
+                    <p class="text">Добрый день!</p>
+                    <p class="text" style="margin-bottom: 40px">
+                        К сожалению, Ваш отчет "[[${reportType}]]" с [[${#dates.format(dateFrom, 'dd.MM.yyyy')}]]
+                        по [[${#dates.format(dateTo, 'dd.MM.yyyy')}]] не был создан, пожалуйста, попробуйте создать его позднее.
+                    </p>
+                </td>
+            </tr>
+            <tr class="row">
+                <td colspan="2">
+                    <hr/>
+                    <br/>
+                    <p class="text">Спасибо за понимание, <br/>Команда Nimera.
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <div th:replace=~{mid-office/NIMERA/fragments/footer.html}/>
+
+    </body>
+</html>

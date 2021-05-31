@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width"/>
+    </head>
+    <body>
+        <table style="font-family:Helvetica, Verdana, Arial, Helvetica, sans-serif" width="100%">
+            <tr>
+                <td style="margin: 0;padding: 0;background-color: #fafafa">
+                    <table style="padding: 15px;background-color: #fff; max-width: 600px;width:100%" align="center">
+
+                        <tr th:replace=~{mid-office/EXSCUDO/fragments/header.html}/>
+
+                        <tr>
+                            <td>
+                                <p style="font-size: 14px">Deposit Wallet Report.</p>
+                    <table border="1" >
+                        <tr>
+                            <th>Wallet EON-ID</th>
+                            <th>Currency</th>
+                            <th>Amount Due (Currency)</th>
+                            <th>Available Amount (Currency)</th>
+                            <th>Due Date</th>
+                            <th>Diff</th>
+                        </tr>
+                        <tr th:each="payment : ${payments}">
+                            <th:block th:if="${payment.get('warning')}">
+                                <td style="color: red;" th:text="${payment.get('wallet_eon_id')}">wallet_eon_id</td>
+                                <td style="color: red;" th:text="${payment.get('currency')}">currency</td>
+                                <td style="color: red;" th:text="${payment.get('amount_due')}">amount due</td>
+                                <td style="color: red;" th:text="${payment.get('available_amount')}">available amount</td>
+                                <td style="color: red;" th:text="${#dates.format(payment.get('due_date'), 'yyyy-MM-dd')}">due date</td>
+                                <td style="color: red;" th:text="${payment.get('diff')}">diff</td>
+                            </th:block>
+                            <th:block th:unless="${payment.get('warning')}">
+                                <td th:text="${payment.get('wallet_eon_id')}">wallet_eon_id</td>
+                                <td th:text="${payment.get('currency')}">currency</td>
+                                <td th:text="${payment.get('amount_due')}">amount due</td>
+                                <td th:text="${payment.get('available_amount')}">available amount</td>
+                                <td th:text="${#dates.format(payment.get('due_date'), 'yyyy-MM-dd')}">due date</td>
+                                <td th:text="${payment.get('diff')}">diff</td>
+                            </th:block>
+                        </tr>
+                    </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <hr/>
+                                <br/>
+                                <p style="color: #656565;font-size: 14px;line-height: 1.5em;">Best regards, <br/>Exscudo Team.
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table th:replace=~{mid-office/EXSCUDO/fragments/footer.html}/>
+
+    </body>
+</html>
