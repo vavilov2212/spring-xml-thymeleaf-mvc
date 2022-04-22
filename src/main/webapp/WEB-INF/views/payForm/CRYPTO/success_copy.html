@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Success</title>
+  </head>
+  <body
+    style="
+      padding: 0;
+      margin: 0;
+      font-family: 'Arial';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 150%;
+    "
+  >
+
+    <!-- ********************* -->
+    <!-- ****** Wrapper ****** -->
+    <!-- ********************* -->
+    <table
+      style="
+        width: 100%;
+        border-collapse: collapse;
+      "
+    >
+      <tr>
+        <td
+          style="
+            padding: 0;
+            background-color: #FFFFFF;
+          "
+          align="left"
+        >
+      
+          <tr th:replace=~{payForm/fragments/header.html} />
+
+          <hr
+            style="
+              max-width: 1110px;
+              background: #E5E5E5;
+              color: #E5E5E5;
+              height: 1px;
+              border-width: 0;
+              margin-left: 45px;
+              margin-right: 45px;
+              margin-bottom: 17px;
+            "
+          />
+      
+          <!-- ********************* -->
+          <!-- ****** Invoice ****** -->
+          <!-- ********************* -->
+          <table
+            style="
+              padding: 15px;
+              max-width: 1110px;
+              white-space: nowrap;
+              border-collapse: collapse;
+              margin: 0 45px 90px;
+            "
+          >
+            <tr>
+              <td style="margin-bottom: 7px; display: flex;">
+                <span
+                  style="
+                    color: #4A4A4A;
+                    -webkit-text-fill-color: #4A4A4A;
+                    opacity: 0.5;
+                    margin-right: 32px;
+                  "
+                >
+                  Currency:
+                </span>
+                <span
+                  style="
+                    color: #1F2423;
+                    -webkit-text-fill-color: #1F2423;
+                  "
+                >
+                  DepositCurrency + depositTransportId
+                </span>
+              </td>
+            </tr>
+            
+            <tr>
+              <td style="margin-bottom: 7px; display: flex;">
+                <span
+                  style="
+                    color: #4A4A4A;
+                    -webkit-text-fill-color: #4A4A4A;
+                    opacity: 0.5;
+                    margin-right: 32px;
+                  "
+                >
+                  Payment method:
+                </span>
+                <span
+                  style="
+                    color: #1F2423;
+                    -webkit-text-fill-color: #1F2423;
+                  "
+                >
+                  {{{depositTransportLabel}}} || {{{depositTransportId}}}
+                </span>
+                <img src="{{{ transportIconUrl }}}" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span
+                  style="
+                    color: #4A4A4A;
+                    -webkit-text-fill-color: #4A4A4A;
+                    opacity: 0.5;
+                    margin-right: 32px;
+                  "
+                >
+                  Exchange rate EUR/BTC:
+                  <!-- Exchange rate {{{depositCurrency}}}/{{{invoiceCurrency}}}: -->
+                </span>
+                <span
+                  style="
+                    color: #1F2423;
+                    -webkit-text-fill-color: #1F2423;
+                  "
+                >
+                  rate.toFixed(currencyScale, Decimal.ROUND_DOWN)} {{{depositCurrency}}}/{{{invoiceCurrency}}}
+                </span>
+              </td>
+            </tr>
+          </table>
+    
+          <!-- ********************* -->
+          <!-- ****** Payment ****** -->
+          <!-- ********************* -->
+          <table
+            style="
+              width: 100%;
+              padding: 15px;
+              max-width: 1110px;
+              table-layout: auto;
+              border-collapse: collapse;
+              margin: 0 45px;
+            "
+          >
+            <tr>
+              <td>
+                Confirmed
+              </td>
+              <td>
+                {{{ transportIconUrl }}} {{{ depositTotalAmount.toFixed(10) }}} {{{ depositCurrency }}}
+              </td>
+            </tr>
+          </table>
+          
+          <hr
+            style="
+              max-width: 1110px;
+              background: #E5E5E5;
+              color: #E5E5E5;
+              height: 1px;
+              border-width: 0;
+              margin-left: 45px;
+              margin-right: 45px;
+              margin-bottom: 106px;
+            "
+          />
+
+          <!-- ********************* -->
+          <!-- ****** Status ****** -->
+          <!-- ********************* -->
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              max-width: 1100px;
+              margin: 0 45px;
+            "
+          >
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADsAAAA7CAYAAADFJfKzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGdSURBVHgB7dc9TsMwGMbx1y6pSqdyA7hBZ7q0iEswwRE6QBcGIgEVEgPcgB4BDgCFoeegI2MXJCAqIY/oEEEk58NJXqvvb8mH7Ch/yYNNJIQQQgghhBBC8NDxh53W+XE/zVhNDvMuT7pfXvNVaz3dHI+GpvHOxiLUIzWNbjt41stw2zTHydi/oZH5ctm4Nc1T5Jik0O9ADz78q7lprlOxRULBmdiioeBErI1QYB9rKxRYx9oMBbaxtkOBZWwZocAutqxQYBVbZiiwiS07FIyxOEJ9NjeOdKgW76fXEypBFaFgPAgEDc9Xob4JSd21x6MzsqyqUDDGRpGL2INvM7jKUGiYBgTT2bO319uJFnx39arv7fcoeJy9UAFVh4IxFoKn2b3N4DpCIVUs2AquKxRSx0LR4DpDIVMs5A2uOxQyx0LWYA6hkCsW0gZzCYXcsWAK5hQKVvbG7YvRJPrSYeyrfhCGD5xCf3/Lkn/BRNh5sQmFQss4LmFJt1ZXFqFgLRYSgtmEgtVYQHBzsLtFSr1FoQdcQoUQQgghhBBr6gdfRUe3UiKeZgAAAABJRU5ErkJggg==" />
+            <div
+              style="
+                text-align: start;
+                margin-left: 33px;
+              "
+            >
+              <div
+                style="
+                  color: #E5E5E5;
+                  margin-bottom: 8px;
+                  font-size: 16px;
+                  line-height: 150%;
+                  letter-spacing: 0.05em;
+                "
+              >
+                Payment state
+              </div>
+          
+              <div
+                style="
+                  font-size: 24px;
+                  line-height: 150%;
+                "
+              >
+                payment successful
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  
+  </body>
+</html>

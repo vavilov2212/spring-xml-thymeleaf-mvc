@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Success</title>
+</head>
+<body
+  style="
+      padding: 0;
+      margin: 0;
+      font-family: 'Arial';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 150%;
+      max-width: 1100px;
+    "
+>
+
+<!-- **************************** -->
+<!-- ****** Wrapper table ******* -->
+<!-- **************************** -->
+<table
+  style="
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 200px;
+      "
+>
+  <tr>
+    <td
+      style="
+            padding: 0;
+            background-color: #FFFFFF;
+          "
+      align="left"
+    >
+  
+  <tr th:replace=~{payForm/fragments/header.html} />
+  
+  <!-- ******************************* -->
+  <!-- ****** START Payment sum ****** -->
+  <!-- ******************************* -->
+  <table
+    style="
+                  padding: 15px;
+                  max-width: 1110px;
+                  table-layout: auto;
+                  border-collapse: collapse;
+                  margin: 0 45px;
+                "
+  >
+    <tr>
+      <td>
+                <span
+                  style="
+                    font-weight: 700;
+                    margin-right: 25px;
+                    vertical-align: middle;
+                  "
+                >
+                  Currency
+                </span>
+        <img
+          src=" {{{transportIconUrl}}} "
+          style="
+                        vertical-align: middle;
+                        width: 36px;
+                        height: 36px;
+                      "
+        />
+        <!-- не для всех транспортов загружены иконки на S3 -->
+        
+        &nbsp;
+        <span
+          style="
+                    color: #1F2423;
+                    vertical-align: middle;
+                  "
+        >
+                  {{{depositTransportLabel}}}
+          <!-- если depositTransportLabel пустой, то брать depositTransportId -->
+                </span>
+      </td>
+    </tr>
+  </table>
+  <!-- ***************************** -->
+  <!-- ****** END Payment sum ****** -->
+  <!-- ***************************** -->
+  
+  <hr
+    style="
+                  max-width: 1110px;
+                  background: #E5E5E5;
+                  color: #E5E5E5;
+                  height: 1px;
+                  border-width: 0;
+                  margin-left: 45px;
+                  margin-right: 45px;
+                  margin-bottom: 25px;
+                "
+  />
+  
+  <!-- ******************************** -->
+  <!-- ****** START Invoice data ****** -->
+  <!-- ******************************** -->
+  <table
+    style="
+              padding: 15px;
+              max-width: 1110px;
+              border-collapse: collapse;
+              margin: 0 45px 40px;
+            "
+  >
+    <tr>
+      <td style="display: block; margin-bottom: 7px;">
+                <span
+                  style="
+                    color: #4A4A4A;
+                    color: rgba(74, 74, 74, 0.5);
+                    opacity: 0.5;
+                    margin-right: 32px;
+                    vertical-align: middle;
+                  "
+                >
+                  Deposit currency:
+                </span>
+        <span
+          style="
+                    color: #1F2423;
+                    vertical-align: middle;
+                  "
+        >
+                  {{{depositCurrency}}}
+                </span>
+      </td>
+    </tr>
+    <tr>
+      <td style="display: block; margin-bottom: 7px;">
+                <span
+                  style="
+                    color: #4A4A4A;
+                    color: rgba(74, 74, 74, 0.5);
+                    opacity: 0.5;
+                    margin-right: 32px;
+                    vertical-align: middle;
+                  "
+                >
+                  Pay with:
+                </span>
+        <span
+          style="
+                    color: #1F2423;
+                    vertical-align: middle;
+                  "
+        >
+                  {{{depositTransportLabel}}}
+                </span>
+        &nbsp;
+        <img
+          src=" {{{transportIconUrl}}} "
+          style=" width: 28px; height: 28px;  vertical-align: middle;"
+          alt=""
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>
+                <span
+                  style="
+                    color: #4A4A4A;
+                    color: rgba(74, 74, 74, 0.5);
+                    opacity: 0.5;
+                    margin-right: 32px;
+                  "
+                >
+                  Exchange rate {{{depositCurrency}}}/{{{invoiceCurrency}}}: <!-- заглавными буквами -->
+                </span>
+        <span
+          style="
+                    color: #1F2423;
+                    white-space: nowrap;
+                  "
+        >
+                  {{{rate}}} {{{depositCurrency}}}/{{{invoiceCurrency}}}
+          <!-- rate = expectedDepositAmount / totalInvoiceAmount -->
+          <!-- нужно обрезать количество символов после запятой по значению scale из `/getDepositCurrencies` -->
+          <!-- нужно округлить в сторону нуля -->
+                </span>
+      </td>
+    </tr>
+  </table>
+  
+  <table
+    style="
+              padding: 15px;
+              max-width: 1110px;
+              border-collapse: collapse;
+              margin: 0 45px 27px;
+            "
+  >
+    <tr>
+      <td>
+                <span
+                  style="
+                    color: #1F2423;
+                    margin-right: 32px;
+                  "
+                >
+                  Paid
+                </span>
+        <span
+          style="
+                    color: #1F2423;
+                    white-space: nowrap;
+                  "
+        >
+                  {{{receivedInvoiceAmount}}}/{{{totalInvoiceAmount}}} {{{invoiceCurrency}}}
+                </span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                <span
+                  style="
+                    color: #1F2423;
+                    font-weight: 700;
+                    margin-right: 32px;
+                  "
+                >
+                  There is a surcharge to be paid
+                </span>
+        <span
+          style="
+                    color: #1F2423;
+                    font-weight: 700;
+                    white-space: nowrap;
+                  "
+        >
+                  {{{totalInvoiceAmount - receivedInvoiceAmount}}} {{{invoiceCurrency}}}
+                </span>
+      </td>
+    </tr>
+  </table>
+  <!-- ****************************** -->
+  <!-- ****** END Invoice data ****** -->
+  <!-- ****************************** -->
+  
+  
+  
+  <!-- ********************************** -->
+  <!-- ****** START Payment status ****** -->
+  <!-- ********************************** -->
+  <table
+    style="
+              padding: 15px;
+              max-width: 1110px;
+              table-layout: auto;
+              border-collapse: collapse;
+              margin: 0 45px 40px;
+            "
+  >
+    <tr style="border-spacing: 15px;">
+      <td>
+        <img src="https://exscudo.com/img/payForm/status_partial.png" />
+        <div
+          style="
+                    margin-left: 33px;
+                    display: inline-block;
+                  "
+        >
+                  <span
+                    style="
+                      display: block;
+                      color: #E5E5E5;
+                      font-size: 16px;
+                      line-height: 150%;
+                      letter-spacing: 0.05em;
+                    "
+                  >
+                    Payment state
+                  </span>
+          
+          <span
+            style="
+                      font-size: 24px;
+                      line-height: 150%;
+                    "
+          >
+                    partially paid
+                  </span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+          style="
+                    font-size: 16px;
+                    line-height: 120%;
+                    letter-spacing: 5%;
+                    text-decoration: none;
+                    color: white;
+                    text-align: center;
+                    border-radius: 4px;
+                    background: #0A8576;
+                    text-transform: uppercase;
+                    padding: 16px 0;
+                    width: 100%;
+                    margin-top: 40px;
+                  "
+        >
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://fintap.app/links/invoice/pay/?code={{{invoiceUuid}}}"
+            style="
+                      text-decoration: none;
+                      color: white;
+                    "
+          >
+            Pay in addition
+          </a>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <!-- ******************************** -->
+  <!-- ****** END Payment status ****** -->
+  <!-- ******************************** -->
+  
+  </td>
+  </tr>
+</table>
+
+</body>
+</html>

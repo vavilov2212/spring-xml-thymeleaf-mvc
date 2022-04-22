@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+  </head>
+  <body style="margin: 0;background-color: #fafafa">
+
+  <div
+    style="
+      background: url(https://exscudo.com/img/payForm/head_section.png) no-repeat;
+    "
+  >
+    <div style="height: 200px;"></div>
+    <div
+      style="
+        margin: 0 45px 33px;
+        background: white;
+        padding: 4px;
+        border: 1px solid rgba(63, 67, 70, 0.1);
+        border-radius: 10px;
+        max-width: 1100px;
+      "
+    >
+      <table
+        style="
+          max-width: 1110px;
+          color: #4A4A4A;
+          border-collapse: collapse;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+          width: 100%;
+        "
+      >
+        <tr>
+          <td>
+            <table
+              style="
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                background: #F1F4F7;
+                max-width: 1110px;
+                color: #4A4A4A;
+                width: 100%;
+              "
+            >
+              <tr>
+                <td
+                  style="
+                  padding: 16px 24px;
+                  border-radius: 10px;
+                "
+                  align="left"
+                >
+                  <span>Order №{{{ orderId }}}</span>
+                </td>
+              </tr>
+            </table>
+            <table
+              style="
+                background: #FFFFFF;
+                max-width: 1110px;
+                color: #4A4A4A;
+                width: 100%;
+              "
+            >
+              <tr>
+                <td
+                  style="
+                    padding: 24px;
+                    color: #0A8576;
+                    vertical-align: top;
+                  "
+                  align="left"
+                >
+                  <span>{{{merchantName}}}</span>
+                </td>
+                <td
+                  style="
+                    padding: 24px;
+                    vertical-align: top;
+                    white-space: nowrap;
+                  "
+                  align="right"
+                >
+                  <span
+                    style="
+                      display: block;
+                      vertical-align: middle;
+                    "
+                  >
+                    Sum
+                  </span>
+                  <span
+                    style="
+                      display: block;
+                      font-weight: 700;
+                      font-size: 24px;
+                      line-height: 120%;
+                      letter-spacing: 0.05em;
+                      color: #4A4A4A;
+                      vertical-align: middle;
+                    "
+                  >
+                    {{{depositEntries.expectedDepositAmount}}}
+                    <img
+                      src="{{{depositCurrencyIconUrl}}}"
+                      style=" width: 28px; height: 28px; vertical-align: middle;"
+                      alt=""
+                    />
+                    <!--
+                      Для транспортов EON, использовать currencyLogo (resourceURI)
+                      Для остальных транспортов transportLogo (transports.resourceURI)
+                      :warning: Логотипы брать из S3 (resourceURI) PNG
+                    -->
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+  
+  </body>
+</html>

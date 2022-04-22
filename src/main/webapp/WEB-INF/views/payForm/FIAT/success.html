@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Success</title>
+  </head>
+  <body
+    style="
+      padding: 0;
+      margin: 0;
+      font-family: 'Arial';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 150%;
+      max-width: 1100px;
+    "
+  >
+
+    <!-- **************************** -->
+    <!-- ****** Wrapper table ******* -->
+    <!-- **************************** -->
+    <table
+      style="
+        width: 100%;
+        border-collapse: collapse;
+      "
+    >
+      <tr>
+        <td
+          style="
+            padding: 0;
+            background-color: #FFFFFF;
+          "
+          align="left"
+        >
+      
+          <tr th:replace=~{payForm/fragments/header.html} />
+
+          <hr
+            style="
+              max-width: 1110px;
+              background: #E5E5E5;
+              color: #E5E5E5;
+              height: 1px;
+              border-width: 0;
+              margin-left: 45px;
+              margin-right: 45px;
+              margin-bottom: 17px;
+            "
+          />
+      
+          <!-- ******************************** -->
+          <!-- ****** START Invoice data ****** -->
+          <!-- ******************************** -->
+          <table
+            style="
+              padding: 15px;
+              max-width: 1110px;
+              border-collapse: collapse;
+              margin: 0 45px 90px;
+            "
+          >
+            <tr>
+              <td style="display: block; margin-bottom: 7px;">
+                <span
+                  style="
+                    color: #4A4A4A;
+                    color: rgba(74, 74, 74, 0.5);
+                    opacity: 0.5;
+                    margin-right: 32px;
+                    vertical-align: middle;
+                  "
+                >
+                  Deposit currency:
+                </span>
+                <span
+                  style="
+                    color: #1F2423;
+                    vertical-align: middle;
+                  "
+                >
+                  {{{depositCurrency}}} <!-- заглавными буквами -->
+                </span>
+              </td>
+            </tr>
+            
+            <tr>
+              <td style="display: block; margin-bottom: 7px;">
+                <span
+                  style="
+                    color: #4A4A4A;
+                    color: rgba(74, 74, 74, 0.5);
+                    opacity: 0.5;
+                    margin-right: 32px;
+                    vertical-align: middle;
+                  "
+                >
+                  Payment method:
+                </span>
+                <span
+                  style="
+                    color: #1F2423;
+                    vertical-align: middle;
+                  "
+                >
+                  {{{depositTransportLabel}}}
+                  <!-- если depositTransportLabel пустой, то брать depositTransportId -->
+
+                </span>
+                &nbsp;
+                <img
+                 src=" {{{transportIconUrl}}} "
+                 style=" width: 28px; height: 28px;  vertical-align: middle;"
+                 alt=""
+                />
+                <!-- не для всех транспортов загружены иконки на S3 -->
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span
+                  style="
+                    color: #4A4A4A;
+                    color: rgba(74, 74, 74, 0.5);
+                    opacity: 0.5;
+                    margin-right: 32px;
+                  "
+                >
+                  Exchange rate {{{depositCurrency}}}/{{{invoiceCurrency}}}: <!-- заглавными буквами -->
+                </span>
+                <span
+                  style="
+                    color: #1F2423;
+                    white-space: nowrap;
+                  "
+                >
+                  {{{rate}}} {{{depositCurrency}}}/{{{invoiceCurrency}}}
+                  <!-- rate = expectedDepositAmount / totalInvoiceAmount -->
+                  <!-- нужно обрезать количество символов после запятой по значению scale из `/getDepositCurrencies` -->
+                  <!-- нужно округлить в сторону нуля -->
+                </span>
+              </td>
+            </tr>
+          </table>
+          <!-- ****************************** -->
+          <!-- ****** END Invoice data ****** -->
+          <!-- ****************************** -->
+      
+      
+          <!-- ******************************* -->
+          <!-- ****** START Payment sum ****** -->
+          <!-- ******************************* -->
+          <table
+            style="
+              padding: 15px;
+              max-width: 1110px;
+              table-layout: auto;
+              border-collapse: collapse;
+              margin: 0 45px;
+            "
+          >
+            <tr>
+              <td>
+                <span
+                  style="
+                    font-weight: 700;
+                    margin-right: 100px;
+                    vertical-align: middle;
+                  "
+                >
+                  Confirmed
+                </span>
+                <img
+                  src=" {{{transportIconUrl}}} "
+                  style="
+                    vertical-align: middle;
+                    width: 36px;
+                    height: 36px;
+                  "
+                />
+                &nbsp;
+                <span style="vertical-align: middle;">{{{depositTotalAmount}}} {{{depositCurrency}}}</span>
+                <!-- depositTotalAmount нужно обрезать количество символов после запятой до 10 -->
+              </td>
+            </tr>
+          </table>
+          <!-- ***************************** -->
+          <!-- ****** END Payment sum ****** -->
+          <!-- ***************************** -->
+  
+          <hr
+            style="
+              max-width: 1110px;
+              background: #E5E5E5;
+              color: #E5E5E5;
+              height: 1px;
+              border-width: 0;
+              margin-left: 45px;
+              margin-right: 45px;
+              margin-bottom: 106px;
+            "
+          />
+
+          <!-- ********************************** -->
+          <!-- ****** START Payment status ****** -->
+          <!-- ********************************** -->
+          <table
+            style="
+              padding: 15px;
+              max-width: 1110px;
+              table-layout: auto;
+              border-collapse: collapse;
+              margin: 0 45px;
+            "
+          >
+            <tr>
+              <td>
+                <img src="https://exscudo.com/img/payForm/status_success.png" />
+                <div
+                  style="
+                    margin-left: 33px;
+                    display: inline-block;
+                  "
+                >
+                  <span
+                    style="
+                      display: block;
+                      color: #E5E5E5;
+                      font-size: 16px;
+                      line-height: 150%;
+                      letter-spacing: 0.05em;
+                    "
+                  >
+                    Payment state
+                  </span>
+    
+                  <span
+                    style="
+                      font-size: 24px;
+                      line-height: 150%;
+                    "
+                  >
+                    payment successful
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <!-- ******************************** -->
+          <!-- ****** END Payment status ****** -->
+          <!-- ******************************** -->
+  
+        </td>
+      </tr>
+    </table>
+  
+  </body>
+</html>
